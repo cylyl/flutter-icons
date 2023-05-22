@@ -39,6 +39,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [applicationName: "android.app.Application"]
     }
 
     signingConfigs {
@@ -52,9 +53,14 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.release
+            manifestPlaceholders = [applicationName: "android.app.Application"]
+        }
+
+        debug {
+            manifestPlaceholders = [applicationName: "android.app.Application"]
+        }
+        build{
+            manifestPlaceholders = [applicationName: "android.app.Application"]
         }
     }
 }
